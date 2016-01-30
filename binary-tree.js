@@ -188,10 +188,10 @@ class BinaryTree {
                         replacementParent = current;
 
                         //find the right-most No_de
-                        do{
+                        while(replacement.right !== null){
                             replacementParent = replacement;
                             replacement = replacement.right;
-                        }while(replacement.right !== null)
+                        }
 
                         replacementParent.right = replacement.left;
 
