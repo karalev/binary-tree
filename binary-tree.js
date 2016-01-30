@@ -9,13 +9,13 @@ class BinaryTree {
         var root = this.root;
         //case when there's no root
         if(!root){
-            this.root = new Node(data);
+            this.root = new No_de(data);
             return;
         }
 
         var currentNode = root;
-        var newNode = new Node(data); 
-        //if the value is less than the current node's
+        var newNode = new No_de(data); 
+        //if the value is less than the current No_de's
         while(currentNode){
             if(data < currentNode.data){
                 if(!currentNode.left){
@@ -26,7 +26,7 @@ class BinaryTree {
                     currentNode = currentNode.left;
                 }
             }
-            //if the value is greater than the current node's
+            //if the value is greater than the current No_de's
             else{
                 if(!currentNode.right){
                     currentNode.right = newNode;
@@ -43,14 +43,14 @@ class BinaryTree {
         var found       = false;
         var current     = this.root
 
-        //make sure there's a node to search
+        //make sure there's a No_de to search
         while(!found && current){
 
-            //if the value is less than the current node's, go left
+            //if the value is less than the current No_de's, go left
             if (data < current.data){
                 current = current.left;
 
-            //if the value is greater than the current node's, go right
+            //if the value is greater than the current No_de's, go right
             } else if (data > current.data){
                 current = current.right;
 
@@ -60,7 +60,7 @@ class BinaryTree {
             }
         }
 
-        // true if the node was found
+        // true if the No_de was found
         return found;
 	}
 
@@ -72,15 +72,15 @@ class BinaryTree {
         var replacement;
         var replacementParent;
 
-        //make sure there's a node to search
+        //make sure there's a No_de to search
         while(!found && current){
 
-            //if the value is less than the current node's, go left
+            //if the value is less than the current No_de's, go left
             if (data < current.data){
                 parent = current;
                 current = current.left;
 
-            //if the value is greater than the current node's, go right
+            //if the value is greater than the current No_de's, go right
             } else if (data > current.data){
                 parent = current;
                 current = current.right;
@@ -91,7 +91,7 @@ class BinaryTree {
             }
         }
 
-        //only proceed if the node was found(!!!)
+        //only proceed if the No_de was found(!!!)
         if (found){
             //figure out how many children
             childCount = (current.left !== null ? 1 : 0) + 
@@ -118,14 +118,14 @@ class BinaryTree {
                         //...maybe
                         replacement = this.root.left;
 
-                        //find the right-most leaf node to be 
+                        //find the right-most leaf No_de to be 
                         //the real new root
                         while (replacement.right !== null){
                             replacementParent = replacement;
                             replacement = replacement.right;
                         }
 
-                        //it's not the first node on the left
+                        //it's not the first No_de on the left
                         if (replacementParent !== null){
 
                             //remove the new root from it's 
@@ -187,7 +187,7 @@ class BinaryTree {
                         replacement = current.left;
                         replacementParent = current;
 
-                        //find the right-most node
+                        //find the right-most No_de
                         while(replacement.right !== null){
                             replacementParent = replacement;
                             replacement = replacement.right;
@@ -213,20 +213,20 @@ class BinaryTree {
 	}
     
     traverse(process){
-        function inOrder(node){
-            if (node){
+        function inOrder(No_de){
+            if (No_de){
 
                 //traverse the left subtree
-                if (node.left !== null){
-                    inOrder(node.left);
+                if (No_de.left !== null){
+                    inOrder(No_de.left);
                 }            
 
-                //call the process method on this node
-                process.call(this, node);
+                //call the process method on this No_de
+                process.call(this, No_de);
 
                 //traverse the right subtree
-                if (node.right !== null){
-                    inOrder(node.right);
+                if (No_de.right !== null){
+                    inOrder(No_de.right);
                 }
             }
         }
@@ -238,7 +238,7 @@ class BinaryTree {
 	size() {
         var length = 0;
 
-        this.traverse(function(node){
+        this.traverse(function(No_de){
             length++;
         });
 
