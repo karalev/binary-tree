@@ -67,6 +67,7 @@ class BinaryTree {
 	remove(data) {
         
 	}
+    
     traverse(process){
         function inOrder(node){
             if (node){
@@ -91,10 +92,22 @@ class BinaryTree {
     }
 
 	size() {
-        
+        var length = 0;
+
+        this.traverse(function(node){
+            length++;
+        });
+
+        return length;
 	}
 
 	isEmpty() {
-
+        var empty = true;
+        var root = this.root;
+        
+        if(root){
+            empty = false;
+        }
+        return empty;
 	}
 }
