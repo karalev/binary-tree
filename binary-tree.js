@@ -237,11 +237,26 @@ class BinaryTree {
 
 	size() {
         var length = 0;
+        function inOrder(No_de){
+            if (No_de){
 
-        this.traverse(function(No_de){
-            length++;
-        });
+                //traverse the left subtree
+                if (No_de.left !== null){
+                    inOrder(No_de.left);
+                }            
 
+                length++;
+
+                //traverse the right subtree
+                if (No_de.right !== null){
+                    inOrder(No_de.right);
+                }
+            }
+        }
+
+        //start with the root
+        inOrder(this.root);
+       
         return length;
 	}
 
