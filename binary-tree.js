@@ -186,7 +186,7 @@ class BinaryTree {
                          //reset pointers for new traversal
                         replacement = current.left;
                         replacementParent = current;
-
+                        
                         //find the right-most No_de
                         while(replacement.right !== null){
                             replacementParent = replacement;
