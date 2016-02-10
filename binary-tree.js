@@ -69,8 +69,9 @@ class BinaryTree {
         var parent      = null;
         var current     = this.root;
         var childCount;
-        var replacement;
-        var replacementParent;
+        var replacement = new No_de(0);
+        var replacementParent = new No_de(0);
+        var replacementMax = new No_de(0);
 
         //make sure there's a No_de to search
         while(!found && current){
@@ -185,19 +186,21 @@ class BinaryTree {
                     case 2:
                          //reset pointers for new traversal
                         replacement = current.left;
-                        replacementParent = current;
+                        replacementParent.data = current.data;
+                        replacementParent.left = current.left;
+                        replacementParent.right = current.right;
                         
                         //find the right-most No_de
                         while(replacement.right !== null){
-                            replacementParent = replacement;
+                            replacementMax = replacement;
                             replacement = replacement.right;
                         }
 
-                        replacementParent.right = replacement.left;
+                        replacementMax = replacementParent.right;
 
                         //assign children to the replacement
-                        replacement.right = current.right;
-                        replacement.left = current.left;
+                        replacement.right = replacementMax;
+                        //replacement.left = current.left;
 
                         //place the replacement in the right spot
                         if (current.data < parent.data){
